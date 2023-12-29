@@ -40,7 +40,7 @@ project-directory/
 
 Abra o arquivo `index.html` em um navegador web (recomendado: Google Chrome) para visualizar a tabela paginada dinâmica com dados da API ReqRes.
 
-![Tabela Paginada](assets/screenshots/tabela_paginada.png)
+![Tabela Paginada](https://github.com/rubenslyra/FetchAPI-Make/assets/37023108/8173a9a5-e8e9-4b47-83b0-789d314fe37b)
 
 ## Referências e Recursos
 
