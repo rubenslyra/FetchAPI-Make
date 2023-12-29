@@ -2,15 +2,28 @@
 
 const tableBody = document.getElementById('tableBody');
 const pagination = document.getElementById('pagination');
+const loadingIndicator = document.getElementById('loadingIndicator');
 const perPage = 6; // Número de itens por página
 let currentPage = 1;
 
+function showLoadingIndicator() {
+    loadingIndicator.style.display = 'block';
+}
+
+function hideLoadingIndicator() {
+    loadingIndicator.style.display = 'none';
+}
+
 function fetchData(page) {
+    showLoadingIndicator();
+
     const url = `https://reqres.in/api/users?page=${page}&per_page=${perPage}`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            hideLoadingIndicator();
+
             // Limpa a tabela e adiciona os novos dados
             tableBody.innerHTML = '';
             data.data.forEach(user => {
@@ -37,7 +50,10 @@ function fetchData(page) {
             // Adiciona a paginação
             addPagination(data.total_pages);
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            hideLoadingIndicator();
+            console.error(error);
+        });
 }
 
 function addPagination(totalPages) {
